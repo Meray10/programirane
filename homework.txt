@@ -1,0 +1,38 @@
+ static void Main(string[] args)
+ {
+     string input = Console.ReadLine();
+     List<string> textList = input.Split(' ').ToList();
+
+     List<int> numbers = new List<int>();
+     foreach (string s in textList)
+     {
+         numbers.Add(int.Parse(s));
+     }
+
+     Console.WriteLine("Въведените числа: ");
+     foreach(int n in numbers)
+     {
+         Console.WriteLine(n);
+     }
+     Console.WriteLine($"Брой на всички числа: {numbers.Count}");
+
+     List<int> fNumbers = new List<int>();
+     foreach(int n in numbers)
+     {
+         if (n > 0 && n % 2 == 0 && !fNumbers.Contains(n))
+         {
+             fNumbers.Add(n);
+         }
+     }
+     Console.WriteLine("Филтрирани числа: ");
+     Console.WriteLine(string.Join(" ," , fNumbers));
+
+     int sum = 0;
+     foreach (int n in fNumbers)
+     {
+         sum += n;
+     }
+     Console.WriteLine($"Брой на филтрираните числа: {fNumbers.Count}");
+     Console.WriteLine($"Сума на филтрираните числа: {sum}");
+     
+ }
